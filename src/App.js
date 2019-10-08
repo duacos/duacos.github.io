@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "normalize.css";
+import "./App.sass";
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    toggleMenu: false
+  };
+
+  menuButtonClick() {
+    this.setState({
+      toggleMenu: !this.state.toggleMenu
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+
+        <Navigation
+          handleClick={this.menuButtonClick.bind(this)}
+          toggle={this.state.toggleMenu}
+        />
+
+        <div className="content">hello</div>
+      </div>
+    );
+  }
 }
-
-export default App;
