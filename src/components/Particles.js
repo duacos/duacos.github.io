@@ -24,7 +24,7 @@ const CoverParticles = () => (
       }
     }}
     style={{
-      backgroundColor: "#07AEDF"
+      backgroundColor: "#eb6464"
     }}
   />
 );
